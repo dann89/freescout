@@ -8,7 +8,7 @@
             <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-random"></i> {{ __('workflows::messages.run') }} {{ $workflow->name }}</button>
         </form>
     @endforeach
-    <script>
+    <script {!! \Helper::cspNonceAttr() !!}>
         var workflowBulkForms = document.querySelectorAll('form.workflow-bulk-run');
         for (var f = 0; f < workflowBulkForms.length; f++) {
             workflowBulkForms[f].addEventListener('submit', function () {
